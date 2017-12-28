@@ -1,10 +1,11 @@
 import React from 'react';
 import { View, Text } from 'react-native';
 import Deck from './components/Deck';
+import RouterComponent from './RouterComponent';
 
 const App = () => (
   <View style={styles.containerStyle}>
-    <Deck />
+    <RouterComponent />
   </View>
 );
 
