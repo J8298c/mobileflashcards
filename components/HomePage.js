@@ -4,16 +4,10 @@ import Button from './Button';
 import { Actions } from 'react-native-router-flux'
 import { initDeck } from '../helpers';
 import { AsyncStorage } from 'react-native';
-
+import { connect } from 'react-redux';
+import { fetchAllDecks } from '../actions/index';
 class HomePage extends Component {
-  componentDidMount() {
-    initDeck();
-  }
   render() {
-     AsyncStorage.getItem('decks')
-    .then(response => {
-      console.log(JSON.parse(response));
-    })
     return(
       <View style={styles.containerStyle}>
           <Text style={styles.titleStyle}>

@@ -1,11 +1,16 @@
 import { AsyncStorage } from 'react-native';
 import DeckData from './testdecks';
 
+//sets inital data into async storage
 export function initDeck() {
-  let obj1 = JSON.stringify(DeckData.JavaScript);
-  let obj2 = JSON.stringify(DeckData.React);
-  AsyncStorage.setItem('decks', obj1);
-  AsyncStorage.setItem('decks', obj2);
+  AsyncStorage.setItem('React_Deck', JSON.stringify(DeckData.React))
+    .then(response => { console.log('success')})
+    .catch(error => { console.log(error)});
+
+  AsyncStorage.setItem('JavaScript_Deck', JSON.stringify(DeckData.JavaScript))
+    .then(response => { console.log('success')})
+    .catch(error => { console.log(error)});
+
 }
 
 export function getDecks() {
@@ -21,5 +26,9 @@ export function setDeckTitle(title) {
 }
 
 export function addCardToDeck(title, card) {
+  
+}
+
+export function deleteDecks() {
   
 }

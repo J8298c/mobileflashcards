@@ -2,6 +2,7 @@ import React from 'react';
 import { Text } from 'react-native';
 
 const Card = (props) => {
+  console.log(props);
   return <Text style={styles.textStyles}> Flash Card </Text>
 }
 
