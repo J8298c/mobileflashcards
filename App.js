@@ -1,13 +1,21 @@
 import React from 'react';
-import { View, Text } from 'react-native';
-import Deck from './components/Deck';
+import { StyleSheet, Text, View } from 'react-native';
 import RouterComponent from './RouterComponent';
+import { Provider } from 'react-redux';
+import { createStore } from 'redux';
+import appReducer from './reducers/index';
+const store = createStore(appReducer, {});
 
-const App = () => (
-  <View style={styles.containerStyle}>
-    <RouterComponent />
-  </View>
-);
+const App = () => {
+  return (
+    <Provider store={store}>
+      <View style={styles.containerStyle}>
+        <RouterComponent />
+      </View>
+    </Provider>
+      
+    )
+}
 
 const styles = {
   containerStyle: {
