@@ -4,7 +4,7 @@ import { TouchableHighlight, Text } from 'react-native';
 const Button = (props) => {
     return (
       <TouchableHighlight onPress={props.onPress} style={styles.buttonStyle}>
-        <Text>
+        <Text style={styles.textStyle}>
           { props.buttonText }
         </Text>
       </TouchableHighlight>
@@ -14,8 +14,19 @@ const Button = (props) => {
 const styles = {
   buttonStyle: {
     backgroundColor: 'blue',
-    marginTop: 20,
-    width: 34
+    marginTop: 25,
+    alignSelf: 'stretch',
+    marginLeft: 80,
+    marginRight: 80,
+    borderRadius: 10
+  },
+  textStyle: {
+    alignSelf: 'center',
+    fontSize: 16,
+    fontWeight: '600',
+    paddingTop: 5,
+    paddingBottom: 5,
+    color: 'yellow'
   }
 }
 

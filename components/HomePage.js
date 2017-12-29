@@ -16,11 +16,12 @@ const styles = {
   containerStyle: {
     flex: 1,
     alignItems: 'center',
-    justifyContent: 'center'
+    marginTop: 90
   },
   titleStyle: {
     fontSize: 40,
-    fontWeight:'bold'
+    fontWeight:'bold',
+    marginBottom: 100,
   }
 }
 
