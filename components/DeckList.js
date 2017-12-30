@@ -17,6 +17,7 @@ class DeckList extends Component {
     }
 
     render() {
+        // console.log(this.props, 'the props');
         return (
             <View>
                 <Text>
@@ -27,6 +28,7 @@ class DeckList extends Component {
     }
 }
 function mapStateToProps(state) {
+    console.log(state)
     return {
         state
     }

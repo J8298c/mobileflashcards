@@ -31,7 +31,7 @@ export function addCardToDeck(card) {
 
 export function gettingAllDecks(dispatch) {
     return dispatch => {
-        AsyncStorage.getItem('decks')
+        AsyncStorage.getItem('Decks')
         .then(response => {
             dispatch(getAllDecks(JSON.parse(response)))
         })
