@@ -2,9 +2,10 @@ import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import RouterComponent from './RouterComponent';
 import { Provider } from 'react-redux';
-import { createStore } from 'redux';
+import { createStore, applyMiddleware } from 'redux';
 import appReducer from './reducers/index';
-const store = createStore(appReducer, {});
+import thunk from 'redux-thunk';
+const store = createStore(appReducer, {}, applyMiddleware(thunk));
 
 const App = () => {
   return (
