@@ -47,6 +47,7 @@ export function gettingADeck(id, dispatch) {
 
 export function savingDeckTitle(title, dispatch) {
     return dispatch => {
+      console.log(title)
         //save a title
     }
 }

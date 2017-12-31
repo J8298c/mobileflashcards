@@ -1,36 +1,68 @@
 import React, { Component } from 'react';
-import { View, Text } from 'react-native';
+import { View, Text, TouchableHighlight } from 'react-native';
 import { connect } from 'react-redux';
 import { gettingAllDecks } from '../actions/index';
+import { Entypo } from '@expo/vector-icons';
+import { Actions } from 'react-native-router-flux';
+
 
 class DeckList extends Component {
     //TODO: local state to grab users input might not need it
-    state ={};
     componentDidMount() {
         //fetching decks to displays thier titles
         this.props.gettingAllDecks();
     }
 
-    addNewDeck = (title) => {
-        //TODO: set up meth to add a new deck to the list
-        //by taking a title from users input
-    }
-
     render() {
-        // console.log(this.props, 'the props');
+        const { containerStyle, textStyle, titleFormContainer, iconStyle } = styles;
+        let data;
+        this.props.decks ? 
+        data = Object.keys(this.props.decks): data = null
+        console.log(data);
         return (
-            <View>
-                <Text>
-                    Ill be displaying the titles of decks
-                </Text>
+            <View style={containerStyle}>
+               {
+                   data !== null ?
+                   data.map(title => (
+                       <Text key={title} style={textStyle}>
+                           {title}
+                       </Text>
+                   )) : null
+               }
+               <TouchableHighlight onPress={() => {Actions.deckCreate()}} >
+                 <Entypo name='add-to-list' size={35} style={iconStyle}/>  
+               </TouchableHighlight>
             </View>
         )
     }
 }
 function mapStateToProps(state) {
-    console.log(state)
+    const { decks } = state;
+    console.log(decks)
     return {
-        state
+        decks
+    }
+}
+
+const styles = {
+    containerStyle: {
+        flex: 1,
+        alignItems: 'center',
+        marginTop: 25,
+    },
+    textStyle: {
+        fontSize: 40,
+        textAlign: 'center',
+        marginTop: 20,
+        marginBottom: 20
+    },
+    iconStyle: {
+        justifyContent: 'flex-end',
+        marginTop: 150
+    },
+    titleFormContainer: {
+        justifyContent: 'center',
+        alignItems: 'center'
     }
 }
 
