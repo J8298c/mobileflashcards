@@ -42,7 +42,17 @@ export function gettingAllDecks(dispatch) {
 
 export function gettingADeck(id, dispatch) {
     return dispatch => {
+        let deck;
        //get an item from storage by using the id
+       AsyncStorage.getItem('Decks')
+       .then(response => {
+          let elRes = JSON.parse(response);
+          console.log(elRes);
+          deck = elRes[id];
+          console.log(deck);
+          dispatch(getADeck(deck))
+       })
+       .catch(error => { console.log(error)})
     }
 
 }
