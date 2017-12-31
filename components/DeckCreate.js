@@ -15,7 +15,7 @@ class DeckCreate extends Component {
     }
 
     onSubmit() {
-        this.props.savingDeckTitle(this.state.text)
+        this.props.savingDeckTitle(this.state.text);
     }
 
     render(props) {

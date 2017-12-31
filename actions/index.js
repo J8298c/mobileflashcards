@@ -1,5 +1,6 @@
 import { GET_ALL_DECKS, GET_A_DECK, SAVE_DECK_TITLE, ADD_CARD_TO_DECK } from './types';
 import { AsyncStorage } from 'react-native';
+import { Actions } from 'react-native-router-flux';
 
 export function getAllDecks(decks) {
     return {
@@ -43,12 +44,21 @@ export function gettingADeck(id, dispatch) {
     return dispatch => {
        //get an item from storage by using the id
     }
+
 }
 
-export function savingDeckTitle(title, dispatch) {
+export function savingDeckTitle(decktitle, dispatch) {
     return dispatch => {
-      console.log(title)
-        //save a title
+        //settting up new object to save to deck
+    let deckobj = {};
+    let deckobjProps = {title: decktitle}
+    deckobj[decktitle] = deckobjProps;
+       AsyncStorage.mergeItem('Decks', JSON.stringify(deckobj))
+        .then(response => {
+            console.log(response);
+            Actions.decklist();  
+        })
+        .catch(error => { console.log(error)});
     }
 }
 
