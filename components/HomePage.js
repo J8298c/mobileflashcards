@@ -6,10 +6,10 @@ import deckdata from '../deckdata';
 
 const HomePage = () => {
 	//used to add decks to init app
-	const data = JSON.stringify(deckdata);
-	AsyncStorage.setItem('Decks', data)
-	.then(response => { console.log('success')})
-	.catch(error => { console.log(error)})
+	// const data = JSON.stringify(deckdata);
+	// AsyncStorage.setItem('Decks', data)
+	// .then(response => { console.log('success')})
+	// .catch(error => { console.log(error)})
 	return ( 
 		<View style={styles.containerStyle}>
 			<Text style={styles.titleStyle}> Whiz Kid </Text>
