@@ -24,9 +24,11 @@ class DeckList extends Component {
                {
                    data !== null ?
                    data.map(title => (
-                       <Text key={title} style={textStyle}>
-                           {title}
-                       </Text>
+                       <TouchableHighlight key={title} onPress={() => { Actions.deckview({id: title})}}>
+                           <Text style={textStyle}>
+                                {title}
+                            </Text>
+                        </TouchableHighlight>
                    )) : null
                }
                <TouchableHighlight onPress={() => {Actions.deckCreate()}} >
