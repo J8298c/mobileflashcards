@@ -20,7 +20,9 @@ class DeckView extends Component {
                     this.props.deck ?
                     <View style={styles.cardStyle}>
                         <Text style={styles.textStyle}>{this.props.deck.title}</Text>
-                        <Text style={styles.textStyle}>Cards: {this.props.deck.questions.length}</Text>  
+                        <Text style={styles.textStyle}>Cards: {this.props.question !== undefined ? 
+                            this.props.deck.questions.length 
+                            : 'create a card for your deck'}</Text>  
                     </View>
                     :null
                 }
