@@ -72,9 +72,24 @@ export function savingDeckTitle(decktitle, dispatch) {
     }
 }
 
-export function addingCardToDeck(dispatch) {
+export function addingCardToDeck(id, card, dispatch) {
     return dispatch => {
-
+        AsyncStorage.getItem('Decks')
+        .then(response => {
+            //pasring response to json
+            let elDeck = JSON.parse(response);
+            //pulling out the single deck to edit
+            let theDeck = elDeck[id];
+            if(!theDeck.questions) {
+                theDeck['questions'] = card;
+            }
+            //pushing new question to questions array on deck
+            theDeck.questions.push(card);
+            //saving the complete decks obj again
+            AsyncStorage.setItem('Decks', JSON.stringify(elDeck));
+            Actions.deckview({id: id});
+        })
+        .catch(error => { console.log(error)});
     }
 }
 

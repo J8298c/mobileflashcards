@@ -4,6 +4,7 @@ import HomePage from './components/HomePage';
 import DeckList from './components/DeckList';
 import DeckCreate from './components/DeckCreate';
 import DeckView from './components/DeckView';
+import CardCreate from './components/CardCreate';
 
 
 const RouterComponent = () => {
@@ -14,6 +15,7 @@ const RouterComponent = () => {
 				<Scene key='decklist' title="DeckList" component={DeckList} />
 				<Scene key='deckCreate' title='Create New Deck' component={DeckCreate} />
 				<Scene key='deckview' title='Deck' component={DeckView} />
+				<Scene key='createcard' title='New Card' component={CardCreate} />
 			</Stack>
 		</Router>
 	)
