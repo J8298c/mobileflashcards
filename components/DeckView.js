@@ -25,7 +25,7 @@ class DeckView extends Component {
                     :null
                 }
                 <Button buttonText='Add Card' onPress={() => {Actions.createcard({id: this.props.id})}} />
-                <Button buttonText='Start Quiz' onPress={() => { Actions.quiz()}} />
+                <Button buttonText='Start Quiz' onPress={() => { Actions.quiz({id: this.props.id})}} />
             </View>
         )
     }
