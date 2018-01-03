@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { ScrollView, Text, View } from 'react-native';
 import { connect } from 'react-redux';
 import Button from './Button';
+import Card from './Card';
 import { gettingADeck } from '../actions/index';
 
 class Quiz extends Component {
@@ -23,12 +24,10 @@ class Quiz extends Component {
 				{
 					this.props.deck.questions ?
 					this.props.deck.questions.map(question => (
-						<View key={question.question} style={styles.viewContaier}>
-							<Text style={styles.textContainer}>{question.question}</Text>
-							<Text style={styles.textContainer}>{question.answer}</Text>
-							<Button buttonText='Correct' onPress={() => { this.onQuestionAnswer(true)}} />
-							<Button buttonText='InCorrect' onPress={() => { this.onQuestionAnswer(false)}} />
-						</View>
+						<Card cardQuestion={question.question} 
+							answer={question.answer} 
+							onPress={(evt) => { console.log(evt)}}
+							/>
 					))
 					: null
 				}
