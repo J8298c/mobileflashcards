@@ -6,34 +6,27 @@ import Card from './Card';
 import { gettingADeck } from '../actions/index';
 
 class Quiz extends Component {
-	state = { score: 0}
-	componentDidMount(props) {
-		this.props.gettingADeck(this.props.id);
-	}
-
-	onQuestionAnswer(answer) {
-		let newScore = this.state.score;
-		if(answer) { newScore++ }
-		console.log(newScore);
-		this.setState({ score: newScore});
-	}
+	state ={score: 0}
 
 	render(props) {
 		return (
-			<ScrollView contentContainerStyle={styles.quizContainer}>
+			<ScrollView>
 				{
-					this.props.deck.questions ?
-					this.props.deck.questions.map(question => (
-						<Card cardQuestion={question.question} 
-							answer={question.answer} 
-							onPress={(evt) => { console.log(evt)}}
-							/>
+					this.props.deck ?
+					this.props.deck.map(decker => (
+						<View>
+							<View>
+								<Text>
+									{decker.question}
+								</Text>
+								<Text>
+									{decker.answer}
+								</Text>
+							</View>
+						</View>
 					))
-					: null
+					:null
 				}
-				<Text style={styles.scoreContainer}>
-					Current Score: { this.state.score }
-				</Text>
 			</ScrollView>
 		)
 	}

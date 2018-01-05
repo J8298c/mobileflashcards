@@ -1,33 +1,35 @@
 import React from 'react';
-import { Text, View, TouchableOpacity } from 'react-native';
+import { View, Text } from 'react-native';
+import Button from './Button';
 
-const Card = (props) => {
-    //need to fill an array with different answers
-    let answers = [];
-    const { answer } = props;
-    answers.push(answer);
-    let fakeAnswer = 'its a delorean';
-    let nextAnswer = 'up up down down left right left right';
-    answers.push(fakeAnswer, nextAnswer);
-    return (
-        <View>
-        <Text>
+const Card = (props) => (
+    <View style={styles.viewContaier}>
+        <Text style={styles.questionText}>
             {props.cardQuestion}
         </Text>
-            {
-                answers.map(elAnswer => (
-                    <View key={elAnswer}>
-                      <Text>
-                       { elAnswer}
-                    </Text>
-                    <TouchableOpacity onPress={props.onPress}>
-                        <Text>Select</Text>
-                    </TouchableOpacity>  
-                    </View>
-                    
-                ))
-            }
+        <Text style={styles.textContainer}>
+            {props.answer}
+        </Text>
+        <Button buttonText='Correct Answer' onPress={props.oncorrectPress} />
+        <Button buttonText='InCorrect Answer' onPress={props.onInCorrectPress} />
     </View>
-    )
-};
+);
+
 export default Card;
+
+const styles = {
+    viewContaier: {
+        marginTop: 20,
+        marginBottom: 55
+    },
+    textContainer: {
+        alignItems: 'center',
+        marginLeft: 50,
+        marginRight: 50
+    },
+    questionText: {
+        textAlign: 'center',
+        fontSize: 25,
+        marginBottom: 15
+    }
+}

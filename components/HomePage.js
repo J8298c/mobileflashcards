@@ -13,7 +13,7 @@ const HomePage = () => {
 	return ( 
 		<View style={styles.containerStyle}>
 			<Text style={styles.titleStyle}> Whiz Kid </Text>
-			<Button onPress={() => { Actions.decklist()}} buttonText='Start' />
+			<Button onPress={() => { Actions.decklist()}} buttonText='Start' buttonColor='#5186EC'/>
 		</View>
 	)
 }
