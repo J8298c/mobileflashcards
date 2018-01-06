@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { ScrollView, View, Text } from 'react-native';
 import { connect } from 'react-redux';
 import { gettingADeck } from '../actions/index';
+import { Actions } from 'react-native-router-flux';
 import Button from './Button';
 
 class Quiz extends Component {
@@ -37,10 +38,11 @@ class Quiz extends Component {
 				{
 					this.props.deck ?
 						this.props.deck.questions.map(q => (
-							<View style={{display: this.state.display}}>
+							<View style={{display: this.state.display}} key={q.answer}>
 								<View style={styles.questContainer}>
 									<Text style={styles.textContainer}>{q.question}</Text>
 									<Text style={styles.answerContainer}>{q.answer}</Text>
+									<Button buttonText='Get Hint' onPress={() => { Actions.cardback({hint: q})}} />
 								</View>
 								<Button buttonText='Yes' onPress={() => { this.onQuestionAnswer(true)} } />
 								<Button buttonText='No' onPress={() => { this.onQuestionAnswer(false)} } />
