@@ -5,7 +5,10 @@ import { gettingADeck } from '../actions/index';
 import Button from './Button';
 
 class Quiz extends Component {
-	state = { score: 0}
+	state = {
+			score: 0,
+
+		}
 
 	componentDidMount() {
 		this.props.gettingADeck(this.props.id);
@@ -18,7 +21,9 @@ class Quiz extends Component {
 		}
 	}
 	incrementScore(prevstate) {
-		this.setState({ score: prevstate++})
+		let theScore = this.state.score;
+
+		this.setState({score :  theScore +=1})
 	}
 
 	onNextQuestion() {
@@ -26,6 +31,7 @@ class Quiz extends Component {
 	}
 
 	render() {
+		console.log(this.state.score);
 		return (
 			<ScrollView>
 				{
@@ -41,8 +47,8 @@ class Quiz extends Component {
 							</View>
 						)): null
 				}
-				<View style={styles.questContainer}>
-					<Text>{this.state.score}</Text>
+				<View style={styles.scoreContainer}>
+					<Text style={styles.scoreText}>{this.state.score}</Text>
 				</View>
 			</ScrollView>
 		)
@@ -72,5 +78,14 @@ const styles = {
 		textAlign: 'center',
 		marginTop: 24,
 		marginBottom: 36
+	},
+	scoreContainer: {
+		flex: 1,
+		alignItems: 'center',
+		marginTop: 20,
+	},
+	scoreText: {
+		fontSize: 40,
+		textAlign: 'center',
 	}
 }
