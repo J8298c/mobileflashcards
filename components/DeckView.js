@@ -12,8 +12,10 @@ class DeckView extends Component {
         this.props.gettingADeck(this.props.id);
 
     }
+
+    
+
     render(props) {
-        console.log(this.props.deck, 'deck in props');
         return (
             <View>
                 {

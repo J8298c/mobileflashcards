@@ -64,7 +64,7 @@ export function savingDeckTitle(decktitle, dispatch) {
     deckobj[decktitle] = deckobjProps;
        AsyncStorage.mergeItem('Decks', JSON.stringify(deckobj))
         .then(response => {
-            Actions.decklist();  
+            Actions.deckview();  
         })
         .catch(error => { console.log(error)});
     }

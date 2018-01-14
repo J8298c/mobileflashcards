@@ -32,11 +32,10 @@ class Quiz extends Component {
 	}
 
 	render() {
-		console.log('the props: ',this.props.deck);
 		return (
 			<ScrollView>
 				{
-					this.props.deck ?
+					this.props.deck.questions ?
 						this.props.deck.questions.map(q => (
 							<View style={{display: this.state.display}} key={q.answer}>
 								<View style={styles.questContainer}>
@@ -47,7 +46,11 @@ class Quiz extends Component {
 								<Button buttonText='Yes' onPress={() => { this.onQuestionAnswer(true)} } />
 								<Button buttonText='No' onPress={() => { this.onQuestionAnswer(false)} } />
 							</View>
-						)): null
+						)): 
+						<View style={styles.textContainer}>
+							<Text style={styles.text}>No Questions for this subject how about creating some</Text>
+							<Button buttonText='Add Card' onPress={() => {Actions.createcard({id: this.props.id})}} />
+						</View>
 				}
 				<View style={styles.scoreContainer}>
 					<Text style={styles.scoreText}>{this.state.score}</Text>
@@ -89,5 +92,8 @@ const styles = {
 	scoreText: {
 		fontSize: 40,
 		textAlign: 'center',
+	},
+	text: {
+		fontSize: 17
 	}
 }
