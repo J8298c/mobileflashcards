@@ -32,7 +32,7 @@ class Quiz extends Component {
 	}
 
 	render() {
-		console.log(this.state.score);
+		console.log('the props: ',this.props.deck);
 		return (
 			<ScrollView>
 				{

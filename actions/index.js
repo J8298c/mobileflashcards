@@ -47,10 +47,9 @@ export function gettingADeck(id, dispatch) {
        AsyncStorage.getItem('Decks')
        .then(response => {
           let elRes = JSON.parse(response);
-          console.log(elRes);
-          deck = elRes[id];
-          console.log(deck);
-          dispatch(getADeck(deck))
+            deck = elRes[id];
+            dispatch(getADeck(deck));
+            
        })
        .catch(error => { console.log(error)})
     }
@@ -65,7 +64,6 @@ export function savingDeckTitle(decktitle, dispatch) {
     deckobj[decktitle] = deckobjProps;
        AsyncStorage.mergeItem('Decks', JSON.stringify(deckobj))
         .then(response => {
-            console.log(response);
             Actions.decklist();  
         })
         .catch(error => { console.log(error)});
