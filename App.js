@@ -1,31 +1,28 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
-import RouterComponent from './RouterComponent';
 import { Provider } from 'react-redux';
 import { createStore, applyMiddleware } from 'redux';
-import { setLocalNotification } from './components/NotificationsHelper';
-import appReducer from './reducers/index';
 import thunk from 'redux-thunk';
-const store = createStore(appReducer, {}, applyMiddleware(thunk));
+import RouterComponent from './src/components/RouterComponent';
+import appReducers from './src/reducers/index';
 
-class App extends Component {
-  componentDidMount() {
-    setLocalNotification();
-  }
+const store = createStore(appReducers, {}, applyMiddleware(thunk))
+
+
+export default class App extends React.Component {
   render() {
     return (
-      <Provider store={store}>
-        <View style={styles.containerStyle}>
+      <View style={styles.container}>
+        <Provider store={store}>
           <RouterComponent />
-        </View>
-      </Provider>
-      )
+        </Provider>
+      </View>
+    );
   }
 }
 
-const styles = {
-  containerStyle: {
-    flex: 1
-  }
-}
-export default App;
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+  },
+});

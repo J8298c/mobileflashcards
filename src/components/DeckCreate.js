@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { View, TextInput } from 'react-native';
 import { connect } from 'react-redux';
 import Button from './Button';
-import { savingDeckTitle } from '../actions/index';
+import { savingADeck } from '../actions/index';
 
 
 class DeckCreate extends Component {
@@ -15,7 +15,7 @@ class DeckCreate extends Component {
     }
 
     onSubmit() {
-        this.props.savingDeckTitle(this.state.text);
+        this.props.savingADeck(this.state.text);
     }
 
     render(props) {
@@ -32,7 +32,7 @@ class DeckCreate extends Component {
     }
 }
 
-export default connect(null, { savingDeckTitle })(DeckCreate);
+export default connect(null, { savingADeck })(DeckCreate);
 
 const styles = {
     containerStyle: {

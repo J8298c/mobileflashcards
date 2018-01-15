@@ -2,14 +2,13 @@ import React from 'react';
 import { View, Text, AsyncStorage } from 'react-native';
 import { Actions } from 'react-native-router-flux';
 import Button from './Button';
-import deckdata from '../deckdata';
+import deckdata from '../mockdata';
 
 const HomePage = () => {
-	//used to add decks to init app
-	// const data = JSON.stringify(deckdata);
-	// AsyncStorage.setItem('Decks', data)
-	// .then(response => { console.log('success')})
-	// .catch(error => { console.log(error)})
+    const data = JSON.stringify(deckdata);
+	AsyncStorage.setItem('Decks', data)
+	 .then(response => { console.log('success')})
+	.catch(error => { console.log(error)})
 	return ( 
 		<View style={styles.containerStyle}>
 			<Text style={styles.titleStyle}> Whiz Kid </Text>
