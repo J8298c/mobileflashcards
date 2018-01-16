@@ -7,28 +7,23 @@ import { Actions } from 'react-native-router-flux';
 
 class DeckView extends Component {
     componentDidMount(props) {
-        console.log(this.props.id);
+        console.log('the id: ',this.props.id);
         this.props.gettingADeck(this.props.id)
-    }
-    componentWillReceiveProps(nextprops) {
-        if(this.props.deck !== nextprops.deck) {
-            this.props.deck = nextprops.deck
-        }
     }
     render() {
         console.log('decks',this.props.deck)
         return (
             <View>
-               {/* {
+               {
                    this.props.deck ?
                    <View style={styles.cardStyle}>
-                   <Text style={styles.textStyle}>{this.props.deck.title}</Text>
-                   <Text style={styles.textStyle}>Cards: {this.props.deck.questions ? 
-                       this.props.deck.questions.length 
-                       :  0 + ' create a card for your deck'}</Text>  
-               </View>
+                        <Text style={styles.textStyle}>{this.props.deck.title}</Text>
+                        <Text style={styles.textStyle}>Cards: {this.props.deck.questions ? 
+                            this.props.deck.questions.length 
+                            :  0 + ' create a card for your deck'}</Text>  
+                    </View>
                :null
-               } */}
+               }
                  <Button buttonText='Add Card' onPress={() => {Actions.createcard({id: this.props.id})}} />
                 <Button buttonText='Start Quiz' onPress={() => { Actions.quiz({id: this.props.id})}} />
             </View>

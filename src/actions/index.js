@@ -69,16 +69,15 @@ export function addingCardToDeck(id, card, dispatch) {
         AsyncStorage.getItem('Decks')
         .then(JSON.parse)
         .then(decks => {
-            let theDeck = decks[id];
-            console.log(theDeck);
-            if(!theDeck.questions) {
-                theDeck['questions'] = [];
-                theDeck.questions.push(card);
-            } else {
-                theDeck.questions.push(card);
-            }
-            AsyncStorage.setItem('Decks', JSON.stringify(theDeck))
-            Actions.deckview({id: id})
+          let theDeck = decks[id];
+          if(theDeck.questions.length) {
+              AsyncStorage.setItem('Decks', theDeck)
+          } else {
+              theDeck['questions'] = [];
+              theDeck.questions.push(card)
+              AsyncStorage.setItem('Decks', theDeck)
+          }
+          Actions.deckview({id: theDeck.title})
         })
         .catch(error => { console.log(error)});
     }
