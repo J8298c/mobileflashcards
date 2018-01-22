@@ -1,4 +1,4 @@
-module.exports = {
+const data = {
     React: {
       title: 'React',
       questions: [
@@ -22,3 +22,5 @@ module.exports = {
       ]
     }
   }
+
+  export default data;

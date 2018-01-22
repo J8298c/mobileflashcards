@@ -1,10 +1,10 @@
 {
-  "name": "whiz-kid",
+  "name": "whizkid",
   "version": "0.1.0",
   "private": true,
   "devDependencies": {
     "jest-expo": "23.0.0",
-    "react-native-scripts": "1.8.1",
+    "react-native-scripts": "1.9.0",
     "react-test-renderer": "16.0.0"
   },
   "main": "./node_modules/react-native-scripts/build/bin/crna-entry.js",
@@ -23,7 +23,7 @@
     "lodash": "^4.17.4",
     "react": "16.0.0",
     "react-native": "0.50.3",
-    "react-native-router-flux": "^4.0.0-beta.27",
+    "react-native-router-flux": "^4.0.0-beta.28",
     "react-redux": "^5.0.6",
     "redux": "^3.7.2",
     "redux-thunk": "^2.2.0"
