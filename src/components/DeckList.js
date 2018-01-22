@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Text, View, AsyncStorage } from 'react-native';
+import { Text, View, AsyncStorage, ScrollView, TouchableHighlight } from 'react-native';
 import * as _ from 'lodash';
 import AppButton from './AppButton';
 import { Actions } from 'react-native-router-flux';
@@ -26,10 +26,14 @@ class DeckList extends Component {
               {
                   this.state.decks ?
                   _.map(this.state.decks, deck => (
-                    <View key={deck.title}>
-                        <Text>Deck {deck.title}</Text>
-                        <Text>Questions {deck.questions ? deck.questions.length : 0}</Text>
-                    </View>
+                    <ScrollView key={deck.title}>
+                        <TouchableHighlight onPress={() => { Actions.Deck({id: deck.title})}}>
+                            <View>
+                            <Text>Deck {deck.title}</Text>
+                            <Text>Questions {deck.questions ? deck.questions.length : 0}</Text>
+                            </View>
+                        </TouchableHighlight>
+                    </ScrollView>
                   ))
                   : 
                   <Text>Looks empty in here lets add a new deck</Text>
