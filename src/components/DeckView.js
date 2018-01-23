@@ -29,16 +29,14 @@ class DeckView extends Component {
                     </View>
                     <View>
                         {this.state.deck.questions ? 
-                            this.state.deck.questions.map(question => (
-                                <Text>questions: {question.question}</Text>
-                            )):
-                            <Text>0</Text>
+                            <Text>Cards: {this.state.deck.questions.length}</Text>
+                            :  <Text>Cards: 0</Text>
                         }
                     </View>
                     </View>
                     :null
                 }
-                <AppButton onPress={() => { Actions.CreateQuest()}} buttonText='Add Question' />
+                <AppButton onPress={() => { Actions.CreateQuest({id: this.props.id})}} buttonText='Add Question' />
             </View>
         )
     }

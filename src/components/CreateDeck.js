@@ -14,7 +14,7 @@ class CreateDeck extends Component {
       AsyncStorage.mergeItem('Decks', JSON.stringify(newDeck))
       .then(response => { 
           console.log(`Added your new deck ${newDeck}`)
-          Actions.Decks();
+          Actions.Deck({id: deckTitle});
         })
       .catch(error => { console.log(error)})
 

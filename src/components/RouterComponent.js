@@ -4,6 +4,7 @@ import HomePage from './Hompage';
 import DeckList from './DeckList';
 import CreateDeck from './CreateDeck';
 import DeckView from './DeckView';
+import CreateQuestion from './CreateQuestion';
 
 const RouterComponent = () => (
     <Router>
@@ -12,6 +13,7 @@ const RouterComponent = () => (
             <Scene key='Decks' component={DeckList} title='Decks' />
             <Scene key='CreateDeck' component={CreateDeck} title='Create a Deck' />
             <Scene key='Deck' component={DeckView} title='Deck' />
+            <Scene key='CreateQuest'component={CreateQuestion} title='Question create' />
         </Stack>
     </Router>
 )
