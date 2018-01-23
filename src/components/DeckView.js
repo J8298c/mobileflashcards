@@ -5,7 +5,8 @@ import { Actions } from 'react-native-router-flux';
 
 class DeckView extends Component {
     state = {
-        deck: []
+        deck: [],
+        hint: false
     }
     componentDidMount(props) {
         console.log(this.props)
@@ -37,6 +38,7 @@ class DeckView extends Component {
                     :null
                 }
                 <AppButton onPress={() => { Actions.CreateQuest({id: this.props.id})}} buttonText='Add Question' />
+                <AppButton onPress={() => { Actions.Quiz({id: this.props.id})}} buttonText='Start Quiz' />
             </View>
         )
     }
