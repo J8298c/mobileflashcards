@@ -21,12 +21,34 @@ class CreateDeck extends Component {
     }
     render() {
         return (
-            <View>
-                <Text>Enter the Title of your Deck</Text>
-                <TextInput onChangeText={(title) => this.setState({title})}/>
+            <View style={styles.containerStyle}>
+                <Text style={styles.titleStyle}>Enter the Title of your Deck</Text>
+                <TextInput style={styles.inputStyles} onChangeText={(title) => this.setState({title})}/>
                 <AppButton onPress={() => {this.addDeck()}} buttonText='Save' />
             </View>
         )
     }
 }
 export default CreateDeck;
+
+const styles = {
+    containerStyle: {
+        flex: 1,
+        backgroundColor: '#392D4F'
+    },
+    titleStyle: {
+        fontSize: 20,
+        textAlign: 'center',
+        marginTop: 85,
+        color: '#F34159'
+    },
+    inputStyles: {
+        alignSelf: 'center',
+        backgroundColor: '#FCFCFC',
+        width: 200,
+        marginTop: 25,
+        height: 40,
+        fontSize: 25
+    }
+   
+}

@@ -28,17 +28,17 @@ class DeckView extends Component {
     render() {
         console.log(this.state);
         return (
-            <View>
+            <View style={styles.containerStyle}>
                 {
                     this.state.deck ?
                     <View>
                     <View>
-                        <Text>Title {this.state.deck.title}</Text>
+                        <Text style={styles.titleStyle}>Title {this.state.deck.title}</Text>
                     </View>
                     <View>
                         {this.state.deck.questions ? 
-                            <Text>Cards: {this.state.deck.questions.length}</Text>
-                            :  <Text>Cards: 0</Text>
+                            <Text style={styles.titleStyle}>Cards: {this.state.deck.questions.length}</Text>
+                            :  <Text style={styles.titleStyle}>Cards: 0</Text>
                         }
                     </View>
                     </View>
@@ -52,3 +52,25 @@ class DeckView extends Component {
 }
 
 export default DeckView;
+
+const styles = {
+    containerStyle: {
+        flex: 1,
+        backgroundColor: '#392D4F'
+    },
+    titleStyle: {
+        fontSize: 20,
+        textAlign: 'center',
+        marginTop: 10,
+        color: '#F34159'
+    },
+    inputStyles: {
+        alignSelf: 'center',
+        backgroundColor: '#FCFCFC',
+        width: 200,
+        marginTop: 25,
+        height: 40,
+        fontSize: 25
+    }
+   
+}

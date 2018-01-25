@@ -22,15 +22,15 @@ class DeckList extends Component {
     render() {
         console.log(this.state);
         return (
-            <View>
+            <View style={styles.containerStyle}>
               {
                   this.state.decks ?
                   _.map(this.state.decks, deck => (
                     <ScrollView key={deck.title}>
                         <TouchableHighlight onPress={() => { Actions.Deck({id: deck.title})}}>
-                            <View>
-                            <Text>Deck {deck.title}</Text>
-                            <Text>Questions {deck.questions ? deck.questions.length : 0}</Text>
+                            <View style={{marginTop: 5}}>
+                            <Text style={styles.titleStyle}>Deck {deck.title}</Text>
+                            <Text style={styles.titleStyle}>Questions {deck.questions ? deck.questions.length : 0}</Text>
                             </View>
                         </TouchableHighlight>
                     </ScrollView>
@@ -45,3 +45,25 @@ class DeckList extends Component {
 }
 
 export default DeckList;
+
+const styles = {
+    containerStyle: {
+        flex: 1,
+        backgroundColor: '#392D4F'
+    },
+    titleStyle: {
+        fontSize: 20,
+        textAlign: 'center',
+        marginTop: 10,
+        color: '#F34159'
+    },
+    inputStyles: {
+        alignSelf: 'center',
+        backgroundColor: '#FCFCFC',
+        width: 200,
+        marginTop: 25,
+        height: 40,
+        fontSize: 25
+    }
+   
+}
