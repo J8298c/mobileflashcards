@@ -1,7 +1,7 @@
 import React, {Component}  from 'react'
 import { Text, View, AsyncStorage } from 'react-native';
 import AppButton from './AppButton';
-import { clearNotifications, setNotifications } from './NotificationHellper';
+import { clearNotifications, setNotifications } from './NotificationHelper';
 import { Actions } from 'react-native-router-flux';
 
 class DeckView extends Component {
