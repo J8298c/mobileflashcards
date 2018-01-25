@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { Text, View, AsyncStorage } from 'react-native';
 import AppButton from './AppButton';
+import { Actions } from 'react-native-router-flux';
 
 class QuizView extends Component {
     state = {
@@ -42,6 +43,7 @@ class QuizView extends Component {
                             </View>
                             <AppButton buttonText='Correct' onPress={() => { this.incrementScore()}} />
                             <AppButton buttonText='Not Correct' onPress={() => { this.setState({message: 'Wrong answer'}) }} />
+                            <AppButton buttonText='Hint' onPress={() => { Actions.Back({hint: quiz.answer})}} />
                             <View>
                                 <Text>{this.state.score}</Text>
                                 <Text>{this.state.message}</Text>

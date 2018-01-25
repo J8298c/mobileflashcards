@@ -1,6 +1,7 @@
 import React, {Component}  from 'react'
 import { Text, View, AsyncStorage } from 'react-native';
 import AppButton from './AppButton';
+import { clearNotifications, setNotifications } from './NotificationHellper';
 import { Actions } from 'react-native-router-flux';
 
 class DeckView extends Component {
@@ -17,6 +18,12 @@ class DeckView extends Component {
             this.setState({deck: thisDeck})
         })
         .catch(error => { console.log(error)})
+    }
+
+    onStartQuiz() {
+        clearNotifications()
+        .then(setNotifications)
+        Actions.Quiz({id: this.props.id})
     }
     render() {
         console.log(this.state);
@@ -38,7 +45,7 @@ class DeckView extends Component {
                     :null
                 }
                 <AppButton onPress={() => { Actions.CreateQuest({id: this.props.id})}} buttonText='Add Question' />
-                <AppButton onPress={() => { Actions.Quiz({id: this.props.id})}} buttonText='Start Quiz' />
+                <AppButton onPress={() => { this.onStartQuiz()}} buttonText='Start Quiz' />
             </View>
         )
     }
