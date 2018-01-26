@@ -1,7 +1,7 @@
 import React from 'react';
 import { Text, View } from 'react-native';
 import AppButton from './AppButton';
-import { containerStyle } from './NotificationHellper';
+
 
 const CardBack = (props) => (
     <View style={styles.containerStyle}>
