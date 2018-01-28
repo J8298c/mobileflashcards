@@ -16,9 +16,7 @@ class QuizView extends Component {
         AsyncStorage.getItem('Decks')
         .then(response => {
             let elRes = JSON.parse(response)
-            console.log(elRes, 'the res');
             let theDeck = elRes[this.props.id]
-            console.log(theDeck);
             this.setState({deck: theDeck})
         })
         .catch(error => { console.log(error)})
@@ -33,9 +31,7 @@ class QuizView extends Component {
     nextQuestion() {
         const { questionNumber } = this.state;
         const howManyQUestions = this.state.deck.questions.length - 1
-        console.log(howManyQUestions, '::howmany left');
         if(questionNumber !== howManyQUestions) {
-            console.log(questionNumber);
             this.setState({questionNumber: questionNumber + 1})
         } else {
             this.setState({scoreScreen: true})
@@ -70,31 +66,6 @@ class QuizView extends Component {
                        }
                         
                     </View>
-                    // this.state.deck.questions.map(quiz => (
-                    //     <View key={quiz.question}>
-                    //         <View>
-                    //         <Text style={styles.titleStyle}>{quiz.question}</Text>
-                    //         </View>
-                            
-                    //         {
-                    //             this.state.show ?
-                    //         <View>
-                    //             <View>
-                    //             <Text style={styles.titleStyle}>{quiz.answer}</Text>
-                    //         </View>
-                    //         <AppButton buttonText='Correct' onPress={() => { this.incrementScore()}} />
-                    //         <AppButton buttonText='Not Correct' onPress={() => { this.setState({message: 'Wrong answer'}) }} />
-                    //         <AppButton buttonText='Hint' onPress={() => { Actions.Back({hint: quiz.answer})}} />
-                    //         </View>
-                    //             :<AppButton buttonText='Show Answers' onPress={() => { this.setState({show: true})}}/>
-                    //         }
-                             
-                    //         <View>
-                    //             <Text style={styles.titleStyle}>{this.state.score}</Text>
-                    //             <Text style={styles.titleStyle}>{this.state.message}</Text>
-                    //         </View>
-                    //     </View>
-                    // ))
                     :null
                 }
             </ScrollView>
