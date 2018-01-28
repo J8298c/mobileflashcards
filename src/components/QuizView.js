@@ -49,6 +49,7 @@ class QuizView extends Component {
                            !this.state.scoreScreen ?
                            <View>
                            <View>
+                               <Text style={styles.titleStyle}>Questions Remaining: {this.state.deck.questions.length - this.state.questionNumber - 1}</Text>
                                <Text style={styles.titleStyle}>{this.state.deck.questions[this.state.questionNumber].question}</Text>
                            </View>
                            <View>
