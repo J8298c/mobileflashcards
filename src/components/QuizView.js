@@ -63,7 +63,8 @@ class QuizView extends Component {
                            :
                            <View>
                                 <Text style={styles.titleStyle}>{this.state.score}</Text>
-                                <AppButton buttonText='Restart' onPress={() => Actions.Deck({id: this.state.deck.title})} />
+                                <AppButton buttonText='Go to Deck' onPress={() => Actions.Deck({id: this.state.deck.title})} />
+                                <AppButton buttonText='Restart' onPress={() => this.setState({questionNumber: 0, scoreScreen: false})} />
                            </View>
                        }
                         
