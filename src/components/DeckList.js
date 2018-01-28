@@ -22,24 +22,24 @@ class DeckList extends Component {
     render() {
         console.log(this.state);
         return (
-            <View style={styles.containerStyle}>
+            <ScrollView style={styles.containerStyle}>
               {
                   this.state.decks ?
                   _.map(this.state.decks, deck => (
-                    <ScrollView key={deck.title}>
+                    <View key={deck.title} style={{marginTop: 20}}>
                         <TouchableHighlight onPress={() => { Actions.Deck({id: deck.title})}}>
                             <View style={{marginTop: 5}}>
                             <Text style={styles.titleStyle}>Deck {deck.title}</Text>
                             <Text style={styles.titleStyle}>Questions {deck.questions ? deck.questions.length : 0}</Text>
                             </View>
                         </TouchableHighlight>
-                    </ScrollView>
+                    </View>
                   ))
                   : 
                   <Text>Looks empty in here lets add a new deck</Text>
               }
                 <AppButton onPress={() => { Actions.CreateDeck()}} buttonText='Add' />
-            </View>
+            </ScrollView>
         )
     }
 }
